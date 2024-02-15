@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  
+  h1{
+    text-align: center;
+  }
+table{
+border: solid black 2px;
+border-collapse: collapse;
+width: 80%;
+text-align: center;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+tr{
+  background-color: darkorange
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+<body onload="display()">
+  <h1>DASHBOARD</h1>
+  <table id="dis"class="table table-striped-columns"></table>
+
+  
+  <script>
+    var get = JSON.parse(localStorage.getItem("students"))
+    var allIndex = localStorage.setItem("studentName", index)
+
+
+    function display(){
+      dis.innerHTML=`
+      <table>
+        <tr>
+          <th>S/N</th>
+          <th>FIRST NAME</th>
+          <th>LAST NAME</th>
+          <th>EMAIL</th>
+          <th>PASSWORD</th>
+          <th>ACTIONS</th>
+        </tr>
+      </table>`
+      for (let index = 0; index < get.length; index++) {
+        dis.innerHTML +=`
+        <tbody>
+                <tr>                    
+                <td>${[index + 1]}</td>
+                <td>${get[index].firstName}</td>
+                <td>${get[index].lastName}</td>
+                <td>${get[index].email}</td>
+                <td>${get[index].password}</td>
+                <td><button onclick="del()" class="btn btn-danger">Delete</button>
+                <button onclick="edit(${index})" class="btn btn-warning">Edit</button></td>
+                </tr> 
+            </tbody>
+    
+        `    
+        
+      }
+    }
+  </script>
+</body>
+</html>

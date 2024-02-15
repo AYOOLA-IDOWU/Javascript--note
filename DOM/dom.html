@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <!-- DOM -  Document OBject Model -->
+    <div id="disp"></div>
+
+    <p class="p"></p>
+
+    <button ondblclick="change()" onclick="changeAttrib()">CLICK ME</button>
+    <button id="myBtn">WORK</button>
+   </center>
+
+    <script>
+        document.getElementById("disp").innerHTML=`
+        <h1 title= "hey" style="color: red;">HELLO GUYS</h1>
+        <h2>IT IS GOOD TO CODE</h2>
+        `
+        document.getElementById("myBtn").addEventListener("click", ()=>{
+            console.log("I DEY WORK");
+        })
+
+        const changeAttrib =()=>{
+            document.getElementById("disp").setAttribute("title", "small idowu")
+        }
+
+        const change =()=>{
+            document.getElementById("disp").setAttribute("title", "big big idowu")
+        }
+    </script>
+
+</body>
+</html>

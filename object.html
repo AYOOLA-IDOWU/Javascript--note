@@ -1,0 +1,155 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var student = ["Fola", "Sola", "Tola", "Bola"]
+        var allStudents = []
+        var studentOne = {
+            name : "Damilola",
+            age : 456,
+            school : "SQI college of ICT",
+            code: function(){
+                console.log("Coding is my hobby");
+            }
+    }
+    var studentTwo = {
+            name : "Idowu",
+            age : 900,
+            school : "SQI college of ICT",
+            eat: function(){
+                console.log("I love food");
+            }
+    }
+    var studentThree = {
+            name : "vic",
+            age : 490,
+            school : "SQI college of ICT",
+    }
+    
+    // console.log(studentOne.age)
+    //   console.log(studentOne['name'])
+    // var arrayOfCart = [object,object,obeject]
+    allStudents.push(studentOne,studentTwo,studentThree)
+    console.log(allStudents[0].age,allStudents[0].name);
+    </script>
+</body>
+</html> -->
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    </head>
+    <body onload="displayItems()" >
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <input type="text" placeholder="Item Name" class="form-control my-2">
+            <input type="text" placeholder="Item Price" class="form-control my-2">
+            <input type="text" placeholder="Item Quantity" class="form-control my-2">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        <input type="text" placeholder="Item Name" id="itemName">
+        <input type="text" placeholder="Item Price" id="itemPrice">
+        <input type="text" placeholder="Quantity" id="itemQuantity">
+        <button onclick="addItems()">Add Items</button>
+        <hr>
+        <div id="disp"></div>
+        <script>
+            var allItems = [
+                {name:"Goody Goody",price:100,quantity:200},
+                {name:"Baba Dudu",price:300,quantity:500}
+            ]   
+            // console.log(allItems[0].name)
+            function addItems (){
+                var item = {
+                    name:itemName.value,
+                    price:itemPrice.value,
+                    quantity: itemQuantity.value
+                }
+                allItems.push(item)
+                displayItems()
+            }
+            function displayItems(){
+                disp.innerHTML = ""
+                for (var index = 0; index < allItems.length; index++) {
+                    disp.innerHTML += `
+                        <h1>
+                            ${allItems[index].name} 
+                            ${allItems[index].price} 
+                            ${allItems[index].quantity}
+                        </h1>
+                        <button onclick="deleteItem(${index})">Delete</button>
+                        <button data-toggle="modal" data-target="#exampleModal" onclick="editItem(${index})">Edit</button>
+                    `
+                }
+            }
+            function deleteItem(userIndex){
+                var response=confirm("Are you sure sure sure sure you want to delete?")
+                if(response==true){
+                    allItems.splice(userIndex,1)
+                    console.log(allItems)
+                    displayItems()
+                }else{
+                    console.log("na God save you, e remain small i for delete am")
+                }
+                
+            }
+            function editItem(userIndex){
+                var itemName=prompt("what is the name")
+                var itemPrice=prompt("what is the price")
+                var itemQuantity=prompt("what is the quantity")
+                var newDetails = {
+                    name :itemName,
+                    price:itemPrice,
+                    quantity:itemQuantity,
+                }
+                allItems.splice(userIndex,1,newDetails)
+                displayItems()
+                console.log(allItems)
+            }
+            
+            // Objects.
+            // var allStudents = []
+            // var olamide = {
+            //     firstname: "Olamide",
+            //     lastname: "SQI",
+            //     age : 200,
+            //     password : "fish"
+            // }
+            
+        </script>
+    </body>
+</html>

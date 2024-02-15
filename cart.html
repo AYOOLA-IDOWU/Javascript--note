@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../Downloads/bootstrap-5.3.0-alpha1-dist/bootstrap-5.3.0-alpha1-dist/css/bootstrap.css">
+    <script src="../../Downloads/bootstrap-5.3.0-alpha1-dist/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js"></script>
+</head>
+<body onload="displayCart()">
+    <h1><marquee behavior="" direction="">Welcome to heaven</marquee></h1>
+    <input type="text" placeholder="Add an item" class="form-control my -2" id="user"> 
+    <button class="btn-btn-info w-100" onclick="addToCart()">Add to cart</button>
+    <hr>
+    <div id="disp"></div>
+    <script>
+        var cart = []
+        function addToCart (){
+            cart.push(user.value)
+            displayCart()
+        user.value = ""
+
+            // console.log(cart)
+        }
+        function displayCart(){
+            disp.innerHTML = ""
+            for (var index = 0; index< cart.length; index++){
+                // console.log(index [index])
+                disp.innerHTML   += `
+                <p>${index}</p>
+                <h1> ${ cart[index]} </h1>
+                <button class= "btn-btn-bg-danger" onclick="deleteItem(${index})">Delete</button>
+                <button class= "btn-btn-bg-warning" onclick="editing(${index})">Edit</button>
+                `
+            }
+        }
+        function deleteItem(){
+            cart.splice(0)
+            displayCart()
+        }
+        function editing(editing){
+            // alert("wow")
+            var input=prompt("which index do you want to edit?")
+            var newInput=prompt("What do you want to use to replace it") 
+            cart.splice(editing,1,newInput)
+            displayCart()
+            
+            // disp.innerHTML = cart
+            // disp.innerHTML += `${cart}`
+        }
+    </script>
+</body>
+</html>

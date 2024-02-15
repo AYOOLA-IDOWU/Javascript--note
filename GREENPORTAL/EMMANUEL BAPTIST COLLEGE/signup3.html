@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<style>
+    div{
+        background-color: darkcyan;
+        width: 40%;
+        border-radius: 10px;
+        height: 400px;
+        box-shadow: darkorange 1px 3px 9px 6px;
+    }
+    input{
+        width: 90%;
+        height: 30px;
+        border: none;
+        border-radius: 10px;
+    }
+    button{
+        background-color: darkorange;
+        width: 90%;
+        height: 40px;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+    }
+
+</style>
+<body>
+<center>
+    <div>
+        <h1>Sign Up</h1>
+        <form>
+<input type="text" id="firstName" name="firstName" placeholder="FIRST NAME"><br><br>
+            
+<input type="text" id="lastName" name="lastName" placeholder="LAST NAME"><br><br>
+            
+<input type="email" id="email" name="email" placeholder="EMAIL"><br><br>
+            
+<input type="password" id="password" name="password" placeholder="PASSWORD"><br><br>
+    
+<button type="button" onclick="signUp()">Submit</button>
+        </form>
+    </div>
+</center>
+
+    <script>
+        var pupils=[]
+    if(localStorage.students){
+        var pupils=  JSON.parse(localStorage.getItem("students"))
+    }
+        function signUp() {
+            if (firstName.value === "" || lastName.value === "" || email.value === "" || password.value ==="") {
+                alert("Please fill out all fields.");
+                
+            }
+            else{
+
+                var student = {
+                    firstName: firstName.value,
+                    lastName: lastName.value,
+                    email: email.value,
+                    password: password.value
+                }
+              firstName.value=""
+              email.value=""
+              password.value=""
+              lastName.value=""
+
+
+                pupils.push(student);
+                localStorage.setItem("students", JSON.stringify(pupils));
+                alert("Sign up successful!")
+                console.log(pupils);
+                // window.location.href = "login.html"
+            }
+
+        }
+    </script>
+</body>
+</html>

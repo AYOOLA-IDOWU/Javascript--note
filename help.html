@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc</title>
+</head>
+<body onload="displayItems()" >
+       <input type="text" placeholder="Item Name" id="itemName">
+        <input type="text" placeholder="Item Price" id="itemPrice">
+        <input type="text" placeholder="Quantity" id="itemQuantity">
+        <button onclick="addItems()">Add Items</button>
+        <hr>
+        <div id="disp"></div>
+
+        <script>
+            var myItems = [
+                // {name: "Mamagood", price: 700, quatity: 8},
+                // {name: "Dudu", price: 1000, quatity: 70}
+            ]
+            function addItems(){
+                if(itemName.value, itemPrice.value, itemQuantity.value ==""){
+                    alert("pls input an item")
+                }else{
+                    var item = {
+                        name:itemName.value,
+                        price:itemPrice.value,
+                        quantity: itemQuantity.value,
+                    }
+                    myItems.push(item)
+                    item = ""
+                    // console.log(myItems);
+                    displayItems()
+                }
+            }
+            function displayItems(){
+                disp.innerHTML = ""
+                for (var index = 0; index < myItems.length; index++) {
+                    disp.innerHTML += `
+                        <h1>
+                            ${myItems[index].name} 
+                            ${myItems[index].price} 
+                            ${myItems[index].quantity}
+                        </h1>
+                        <button onclick="deleteItem(${index})">Delete</button>
+                        <button data-toggle="modal" data-target="#exampleModal" onclick="editItem(${index})">Edit</button>
+                    `
+                }
+            }
+            function deleteItem(yes){
+                var response = confirm("Are you sure");
+                if(response==true){
+                    myItems.splice(yes,1)
+                    displayItems()
+                }else{
+                    alert("na god save u")
+                }
+            }
+
+            function editItem(rep){
+                var itemName= prompt("Enter a new name")
+                var itemPrice= prompt("Enter anew price")
+                var itemQuantity= prompt("Enter a new quatity")
+                var newDetails = {
+                    name :itemName,
+                    price:itemPrice,
+                    quantity:itemQuantity,
+                }
+                myItems.splice(rep,1,newDetails)
+                displayItems()
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrisland</title>
+</head>
+<body>
+    <script>
+        // var myName = ["baba", "bubu", "bulaba", "jug","book","buuulu"]
+        // JSON.stringify
+        // var myAge = 7
+        // console.log(myName);
+        // localStorage.setItem ("name", JSON.stringify (myName)) 
+        // localStorage.setItem("list", myName[1])
+            // localStorage.setItem("list", JSON.stringify(myName[3]))
+            var myItems = []
+            var items={
+                name: "Ayo",
+                age: 9,
+                score: 50,
+                gender: "female"
+            }
+            myItems.push(items)
+            localStorage.setItem("items", JSON.stringify(items))
+            // localStorage.setItem("myItems", myItems)
+            console.log(myItems)
+            
+    </script>
+</body>
+</html>

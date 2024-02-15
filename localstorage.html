@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // persistent data
+        // >> application, storage, local storage
+        // characteritics of local storage
+        // 1. It only save in your browers
+        // 2. If you reload your brower, the information is still retain whether u close or reopen it
+        // 3. localStoragecan only stores string
+        // JSON - JAVASCRIPT OBEJECT NOTATION
+        // var myName = "Idowu Ayoola"
+        // localStorage.setItem("localName", myName)
+        var myName = ["bala blu","blu blu","bulaba"]
+        localStorage.setItem("localName",JSON.stringify(myName) )
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        grid-auto-rows: auto;
+    }
+    input{
+        background-color: #f9f9f9;
+        color: deeppink;
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        border-radius: 9px;
+    }
+    #div1{
+        background-color: deeppink;
+        color: white;
+        width: 400px;
+        height: 140px;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        margin: auto;
+        padding: 10px 20px;
+    }
+    button{
+        color: purple;
+        border: none;
+        padding: 10px 10px;
+        cursor: pointer;
+    }
+    #grade{
+        background-color: purple;
+        padding: 10px 10px;
+        color: deeppink;
+        margin: auto;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        padding: 10px 10px;
+        border-radius: 20px 2px 20px 2px;
+        width: 200px;
+        height: 27px;
+    }
+    h3{
+        text-align: center;
+        color: purple;
+    }
+    span{
+        color: deeppink;
+        margin-left: 290px;
+    }
+</style>
+<body>
+    <h3>STUDENT GRADING SYSTEM</h3>
+    <div id="div1">
+        <input type="number" id="score" name="score" min="1" max="100" required="" placeholder="Enter your score"> <br> <br>
+        <button onclick="calculateGrade()">CALCULATE GRADE</button>
+    </div> 
+    <span>******************************************************</span>
+    <br> <br> 
+       <div id="grade"></div>
+    <!-- hello -->
+    <script>
+        function calculateGrade(){
+             score = (document.getElementById('score').value);
+
+            let grade;
+            if (score < 0 || score > 100){
+                grade = "Enter number between 0 and 100"
+            }else if(score >= 75){
+                grade = "4"
+            }else if(score >= 70){
+                grade = "AB"
+            }else if(score >= 65){
+                grade = "B"
+            }else if(score >= 60){
+                grade = "BC"
+            }else if(score >= 55){
+                grade = "C"
+            }else if(score >= 50){
+                grade = "CD"
+            }else if(score >= 45){
+                grade = "D"
+            }else if(score >= 40){
+                grade = "E"
+            }else{
+                grade = "F"
+            }
+            document.getElementById('grade').innerHTML = `Grade: ${grade}`;
+        }
+    //  alert(1234)
+    // alert("hello how can i help you")
+    // alert(true)
+    // alert(typeof("idowu"))
+    // alert(typeof(1234))
+    // alert(typeof(true))
+
+    // Assignment operator
+    // var myAge = 440
+    // alert(myAge)
+
+    // alert(10%2)
+
+    // var length= Number(prompt("type the length you want"))
+    // alert(length+2)
+
+    // var length= prompt("type the length you want")
+    // var width = prompt("type the width that they want")
+    // var areaOfRectangle = length * width
+    // alert(areaOfRectangle)
+
+    // var length = 3
+    // var width= 4
+    // var areaOfRectangle = length * width
+    // alert(areaOfRectangle)
+    // addition, concatenation
+    //  Number(), parseInt(), parseFloat()
+    </script>
+</body>
+</html>

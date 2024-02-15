@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class Car {
+        //     constructor (model, color, engine, year){
+        //         this.model= model;
+        //         this.color= color;
+        //         this.engine= engine;
+        //         this.year= year;
+        //     }
+        // }
+        // let car3= new Car ("Nissan", "red", "vh", 1990);
+        // let car4= new Car ("Toyota", "green", "vh", 1998);
+        // let car5= new Car ("Honda", "white", "vh", 2004);
+        // console.log(car3, car4,car5);
+
+
+        class Student {
+            constructor (name, age, gender){
+                this.name= name;
+                this.age= age;
+                this.gender= gender;
+                // this.year= year;
+            }
+            move(){
+                console.log(`my name is ${this.name} i am ${this.age} years old, i am a ${this.gender}`)
+            }
+            go(){
+                alert(`my name is ${this.name}  `)
+            }
+        }
+        let student1= new Student ("Ayo", 12, "male");
+        let student2= new Student ("Idowu", 30, "female");
+        let student3= new Student ("Tolu", 5, "male");
+        console.log(student1, student2, student3);
+        student1.move()
+        student2.move()
+        student3.move()
+
+        student1.go()
+
+
+    </script>
+</body>
+</html>         

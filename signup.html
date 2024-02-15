@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="First name" id="fn">
+    <input type="text" placeholder="Last name" id="lm">
+    <input type="email" placeholder="Email" id="em">
+    <input type="password" placeholder="password" id="ps">
+    <button onclick="registerStudent()">Sign up</button>
+
+
+    <script>
+        var allStudents = []
+
+        if (localStorage.studentName){
+        allStudents = JSON.parse(localStorage.getItem("studentName"))
+        }
+        console.log(allStudents)
+        function registerStudent(){
+            // alert("e dey work");
+            var student ={
+                firstname: fn.value,
+                lastname: lm.value,
+                email: em.value,
+                password: ps.value
+            }
+            allStudents.push(student)
+            localStorage.setItem("studentName", JSON.stringify(allStudents))
+            window.location.href = "signin.html"
+            console.log(allStudents); 
+        }
+    </script>
+</body>
+</html>

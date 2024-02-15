@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="userInput" placeholder="Enter your goods">
+    <!-- <input type="text" name="" id="itemPrice" placeholder="Enter your goods price"> -->
+
+    <button onclick="addItem()">Add item to array</button>
+    <button onclick="deleteLast()">Delete last item</button>
+    <button onclick="deleteFirst()">Delete first item</button>
+    <button onclick="deleteSp()">Delete a specific item</button>
+    <button onclick="replace()">Delete a specific item and replace</button>
+
+    <script>
+        var cart = [];
+        // console.log(cart[1]);
+        // var object = {name:"Idowu", food:"Eba", accBal:"30000"}
+        // var object2 = {name:"Victoria", food:"Rice", accBal:"35000"}
+        // var arrayOfStudents = []
+        // arrayOfStudents.push(object,object2)
+        // console.log(arrayOfStudents[1].food);
+
+        // for (var index = 0; index < arrayOfStudents.length; index++) {
+        //     console.log(index)
+            
+        // }
+        function addItem(){
+            if (userInput.value != "") {
+                // var goods = {
+                //     name: userInput.value,
+                //     price: itemPrice.value
+                // }
+                // console.log(goods);
+                cart.push(userInput.value)
+                userInput.value = ""
+                console.log(cart);
+            } else {
+                alert("Are you blind?")
+            }
+            // cart.push('card','motor')
+            // console.log(cart);
+        }
+
+        function deleteLast() {
+            cart.pop();
+            console.log(cart);
+        }
+        function deleteFirst(){
+            cart.splice(0,1);
+            console.log(cart);
+        }
+        function deleteSp (){
+            var index = Number(prompt("which item are you deleting? 1, 2, 3, ...") -1)
+            // console.log(index);
+            cart.splice(index,1)
+            console.log(cart);
+        }
+        function replace(){
+            var index = Number(prompt("which item do u want to replace?") -1)
+            var rep = prompt("enter a new item")
+            cart.splice(index,1,rep)
+            console.log(cart)
+
+        }
+    </script>
+</body>
+</html>

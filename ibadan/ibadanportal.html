@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibadan portal</title>
+</head>
+<style>
+    body{
+        background-color: darkred;
+    }
+    div{
+        background-color: white;
+        height: 400px;
+        width: 400px;
+        margin-top: 30px;
+        border-radius: 10px;
+    }
+    input{
+        width: 300px;
+        background-color: darkred;
+        border-radius: 9px;
+        height: 40px;
+        color: white;
+        border: none;
+        text-align: center;
+    }
+    button{
+        width: 200px;
+        border-radius: 100px 0px 100px 0px;
+        border: none;
+        background-color: darkred;
+        color: white;
+        height: 40px;
+    }
+    h2{
+        color: darkred;
+    }
+</style>
+<body>
+    <center>
+        <div>
+            <h2>STUDENT PORTAL</h2> 
+        <input type="text" name="" id="userFirst" placeholder="FIRST NAME" required> <br> <br>
+        <input type="text" name="" id="userSec" placeholder="LAST NAME" required> <br> <br>
+        <input type="email" name="" id="email" placeholder="EMAIL" required> <br> <br>
+        <input type="password" name="" id="pass" placeholder="PASSWORD" required> <br> <br>
+
+        <button onclick="addLog()">LOG IN</button>
+        </div>
+    </center>
+
+    <script>
+        var studentPortal = []
+        if(localStorage.response){
+            studentPortal = JSON.parse(localStorage.getItem("response"))
+        }
+        console.log(studentPortal);
+      
+        function addLog(){
+            if(userFirst.value==""||
+            userSec.value==""||
+            email.value==""||
+            pass.value==""
+            ){
+                alert("please fill out this information")
+            }
+            else{
+                // var studentPortal = []
+                var portal = {
+                firstname: userFirst.value,
+                lastname: userSec.value,
+                email: email.value,
+                password: pass.value
+            }
+            userFirst.value = ""
+            userSec.value= ""
+            email.value= ""
+            pass.value= ""
+            studentPortal.push(portal)
+            console.log(studentPortal);
+            localStorage.setItem("response", JSON.stringify(studentPortal))
+            window.location.href= "signin.html"
+            }
+        }
+    </script>
+</body>
+</html>

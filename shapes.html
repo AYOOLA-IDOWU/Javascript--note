@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center> <br> <br> <br>
+    <button onclick="tra()">TRIANGLE</button>
+    <button onclick="trapezium()">TRAPEZIUM</button>
+    <button onclick="square()">SQUARE</button>
+    <button onclick="rho()">RHOMBUS</button>
+    <button onclick="rec()">RECTANGLE</button>
+    <button onclick="par()">PARALLELOGRAM</button>
+    <button onclick="cir()">CIRCLE</button> <br> <br>
+    <div id="dis">DISPLAY ANSWER</div>
+    </center>
+
+ <script>
+    function tra(){
+        var height = prompt("type the height you want")
+        var base = prompt("type the width you want")
+        var areaOfTriangle = (height * base / 2)
+        alert(areaOfTriangle)
+        dis.innerHTML= areaOfTriangle
+
+    }
+
+    function trapezium(){
+    var side1 = prompt("Enter the length of the first parallel side of the trapezium:")
+    var side2 = prompt("Enter the length of the second parallel side of the trapezium:")
+    var height = prompt("Enter the height of the trapezium:")
+    var areaOfTrapezium =  (side1 + side2 / 2 * height)
+    alert(areaOfTrapezium)
+    dis.innerHTML= areaOfTrapezium
+    }
+
+    function square(){
+    var length = prompt("type the first length you want")
+    var length = prompt("type the second length you want")
+    var areaOfSquare = (length * length)
+    alert(areaOfSquare)
+    dis.innerHTML= areaOfSquare
+    }
+
+    function rho(){
+    var diagonal1 = prompt("Enter the length of the first diagonal of the rhombus")
+    var diagonal2 = prompt("Enter the length of the second diagonal of the rhombus")
+    var areaOfRhombus = (diagonal1 * diagonal2 / 2)
+    alert(areaOfRhombus)
+    dis.innerHTML= areaOfRhombus
+    }
+
+    function rec(){
+    var length = prompt("type the length you want")
+    var width = prompt("type the width you want")
+    var areaOfRectangle = (length * width)
+    alert(areaOfRectangle)
+    dis.innerHTML= areaOfRectangle
+    }
+
+    function par(){
+   var base = prompt("type the base you want");
+   var height = prompt("type the height you want");
+   var areaOfParallelogram = (base * height);
+   alert(areaOfParallelogram)
+   dis.innerHTML= areaOfParallelogram
+    }
+
+    function cir(){
+    var radius = prompt("Enter the radius of the circle:")   
+    var areaOfCircle =  (3.14159 * radius ** 2)
+    alert(areaOfCircle)
+    dis.innerHTML= areaOfCircle
+    }
+ </script>
+
+ 
+
+<!-- 
+
+
+<script>
+    var weight = prompt("Enter your weight in kilograms: ")
+    var height = prompt("Enter your height in meters: ")
+    var bodyMassIndex = (weight / height ** 2)
+    alert = (bodyMassIndex)
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script>
+    var jambRegNo = prompt("Enter your JAMB registration number:")
+var jambScore = prompt("Enter your JAMB score number:") 
+var university = prompt("Enter university of your choice")
+
+if(jambScore > 400){
+    alert("Invalid JAMB score. Please enter a score between 0 and 400.")
+} else if (jambScore >= 180){
+    alert("congratulations you've been given admission")
+} else{
+    alert("oops! You can do better next year or try another school")
+} 
+</script> -->
+</body>
+</html>

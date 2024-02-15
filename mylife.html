@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: deeppink;
+    }
+    div{
+      width: 600px;
+      background-color: gold;
+      border-radius: 14px;
+    }
+    h1{
+      /* background-color: deeppink; */
+      height: 40px;
+      color: green;
+      text-shadow: 2px 2px 6px deeppink;
+
+    }
+    button{
+        background-color: white;
+        width: 150px;
+        border: none;
+        color: deeppink;
+        height: 30px;
+        border-radius: 9px;
+      }
+      input{
+        background-color: white;
+        box-shadow: deeppink 0px 0px 15px 0px;
+        width: 300px;
+        margin-top: 10px;
+        height: 50px;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+    }
+    table, thead,td,h1{
+        color: deeppink;
+    }
+</style>
+<body onload="displayCart()">
+  <center>
+<div>
+    <h1>MY-TO-DO</h1>
+  <input type="text" placeholder="Enter the items you want &#128578;&#128578;&#128578;" id="user"> <br>  <br>
+  <button onclick="addCart()">Add an item</button>
+  <button onclick="deleCart()">Delete all items</button>
+  <button onclick="sort()">sort</button>
+  <br> <br>
+  <table class="stripe table- striped" id="myTable"></table>
+</div>
+</center>
+
+
+
+
+
+
+
+<script>
+
+    var cart = []
+    if(localStorage.item){
+            cart=JSON.parse(localStorage.getItem("item"))
+        }
+      
+        console.log(cart)
+    function addCart(){
+      if(user.value==""){
+        alert("PLEASE ADD AN ITEM")
+      }else{
+        cart.push(user.value)
+        console.log(cart);
+        displayCart()
+        user.value = ""
+        localStorage.setItem("item", JSON.stringify(cart))
+      }
+    }
+    function displayCart(){
+        myTable.innerHTML =`
+        <tr>
+    <td>S/N</td>
+    <td>ITEMS</td>
+    <td>ACTIONS</td>
+
+    </tr>
+    `
+    
+        for (var index = 0; index< cart.length; index++){
+            myTable.innerHTML += `
+            <tr>
+              <td>${index + 1} </td>
+              <td>${ cart[index]} </td>
+              <td>
+                <button onclick="deleteItem(${index})" class="btn btn-sm btn-danger">
+                  <i class="fas fa-trash"></i> DELETE
+                </button> 
+                <button onclick="editCart(${index})" class="btn btn-sm btn-primary">
+                  <i class="fas fa-edit"></i> EDIT
+                </button>
+              </td>
+            </tr>
+          `
+        }
+        // localStorage.setItem("item", JSON.stringify(cart))
+    }
+        function deleteItem(yes){
+          var response = confirm("Are you sure");
+                if(response==true){
+                    cart.splice(yes,1)
+                    displayCart()
+                }else{
+                    alert("Thank your star")
+                }
+        // localStorage.setItem("item", JSON.stringify(cart))
+    }
+    function editCart(){
+        var cart1 = prompt("which number do you want to edit")
+        var rep = prompt("Enter your relacing item")
+        cart.splice(cart1,1,rep,)
+        displayCart()
+        console.log(cart)
+        // localStorage.setItem("item", JSON.stringify(cart))
+    }
+    function deleCart(){
+      cart.splice(0)
+      displayCart()
+      console.log(cart)
+      // localStorage.setItem("item", JSON.stringify(cart))
+    }
+    function sort(){
+      cart.sort()
+      displayCart()
+      console.log(cart)
+    }
+  </script>
+</body>
+</html>

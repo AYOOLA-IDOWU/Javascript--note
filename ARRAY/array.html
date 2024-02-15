@@ -1,0 +1,95 @@
+\<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../Downloads/bootstrap-5.3.0-alpha1-dist/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="row w-50 mx-auto bg-danger">
+
+        <input  type="text" id="stdId" placeholder="student ID">
+        <input type="text" id="stdName" placeholder="student name">
+        <button onclick="signIn()">SIGN IN</button>
+        
+    </div>
+
+    <script>
+                          // MAP METHOD
+        let stdArray = [
+            {id:1, name: "idowu"},
+            {id:2, name: "oluwasegun"},
+            {id:3, name: "paul"},
+            {id:4, name: "prudent"},
+            {id:5, name: "sodiq"}
+        ]
+
+        // FILTER
+        // const signIn=()=>{
+        //     let student = stdArray.filter((std, i)=>stdId.value==std.id && stdName.value==std.name);
+        //     console.log(student);
+        // }
+        
+        
+        // FOR DELETE
+        // const signIn=()=>{
+        //     let student = stdArray.filter((std, i)=>stdId.value!=std.id && stdName.value!=std.name);
+        //     console.log(student);
+        // }
+
+
+        // FIND
+         const signIn=()=>{
+             let student = stdArray.find((std, i)=>stdId.value==std.id && stdName.value==std.name);
+           console.log(student);
+           if(student !=undefined){
+            alert("you are welcome")
+           }else{
+            alert("Get out")
+           }
+        }
+
+
+         // FIND INDEX
+        //   const signIn=()=>{
+        //       let findIndex = 
+        //       stdArray.findIndex((std, i)=>stdId.value==std.id && stdName.value==std.name);
+
+        //     console.log(findIndex);
+        //     if(findIndex>0){
+        //      alert("you are welcome")
+        //     }else{
+        //      alert("Get out")
+        //    }
+        // }
+
+
+
+
+
+
+
+
+
+
+
+
+        // stdArray.map((student, i)=>{
+            // console.log(student.name);
+            // console.log(student);
+            // console.log(i)
+            // console.log(i, student.id);
+        //     if(i == student.id){
+        //         console.log(student)
+        //     }else{
+        //         console.log("not found")
+        //     }
+
+        // })
+    </script>
+
+      <script src="../../../Downloads/bootstrap-5.3.0-alpha1-dist/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
